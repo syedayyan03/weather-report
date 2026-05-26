@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NebulaWeather | Advanced Weather Reporter</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="animated-bg">
+      <div class="gradient-sphere sphere1"></div>
+      <div class="gradient-sphere sphere2"></div>
+      <div class="gradient-sphere sphere3"></div>
+    </div>
+
+    <div class="app-wrapper">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="logo-area">
+          <div class="logo-icon">
+            <i class="fas fa-cloud-moon"></i>
+          </div>
+          <h2>Nebula<span>Weather</span></h2>
+        </div>
+
+        <div class="search-area">
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="cityInput" placeholder="Search city..." />
+          </div>
+          <button id="locationBtn" class="location-btn">
+            <i class="fas fa-location-dot"></i>
+          </button>
+        </div>
+
+        <div class="weather-stats">
+          <div class="stat-item">
+            <i class="fas fa-temperature-low"></i>
+            <div>
+              <label>Feels Like</label>
+              <span id="feelsLikeStat">--°</span>
+            </div>
+          </div>
+          <div class="stat-item">
+            <i class="fas fa-tint"></i>
+            <div>
+              <label>Humidity</label>
+              <span id="humidityStat">--%</span>
+            </div>
+          </div>
+          <div class="stat-item">
+            <i class="fas fa-wind"></i>
+            <div>
+              <label>Wind Speed</label>
+              <span id="windStat">-- km/h</span>
+            </div>
+          </div>
+          <div class="stat-item">
+            <i class="fas fa-sun"></i>
+            <div>
+              <label>UV Index</label>
+              <span id="uvStat">--</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-footer">
+          <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon"></i>
+            <span>Dark Mode</span>
+          </button>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Current Weather Hero -->
+        <div class="weather-hero" id="weatherHero">
+          <div class="hero-content">
+            <div class="location-time">
+              <h1 id="cityName">Loading...</h1>
+              <p id="countryName"></p>
+              <div class="time-date">
+                <i class="far fa-calendar-alt"></i>
+                <span id="dateTime"></span>
+              </div>
+            </div>
+
+            <div class="temp-large">
+              <div class="temp-wrapper">
+                <span id="temperature" class="temp-value">--</span>
+                <span class="temp-unit">°C</span>
+              </div>
+              <div class="weather-condition">
+                <img id="weatherIcon" alt="weather icon" />
+                <p id="weatherDesc">--</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-glow"></div>
+        </div>
+
+        <!-- Details Grid -->
+        <div class="details-grid">
+          <div class="detail-card">
+            <div class="card-icon">
+              <i class="fas fa-compress-alt"></i>
+            </div>
+            <div class="card-info">
+              <label>Pressure</label>
+              <span id="pressure">--</span>
+              <small>hPa</small>
+            </div>
+          </div>
+          <div class="detail-card">
+            <div class="card-icon">
+              <i class="fas fa-eye"></i>
+            </div>
+            <div class="card-info">
+              <label>Visibility</label>
+              <span id="visibility">--</span>
+              <small>km</small>
+            </div>
+          </div>
+          <div class="detail-card">
+            <div class="card-icon">
+              <i class="fas fa-cloud"></i>
+            </div>
+            <div class="card-info">
+              <label>Cloudiness</label>
+              <span id="clouds">--</span>
+              <small>%</small>
+            </div>
+          </div>
+          <div class="detail-card">
+            <div class="card-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="card-info">
+              <label>Air Quality</label>
+              <span id="airQualityValue">--</span>
+              <small>AQI</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5-Day Forecast -->
+        <div class="forecast-section">
+          <div class="section-header">
+            <i class="fas fa-chart-line"></i>
+            <h3>5-Day Forecast</h3>
+          </div>
+          <div class="forecast-slider" id="forecastContainer">
+            <!-- Forecast cards will be inserted here -->
+          </div>
+        </div>
+
+        <!-- Sun & Details -->
+        <div class="sun-section">
+          <div class="sun-card">
+            <i class="fas fa-sunrise"></i>
+            <div>
+              <label>Sunrise</label>
+              <span id="sunrise">--:--</span>
+            </div>
+          </div>
+          <div class="sun-card">
+            <i class="fas fa-sunset"></i>
+            <div>
+              <label>Sunset</label>
+              <span id="sunset">--:--</span>
+            </div>
+          </div>
+          <div class="sun-card">
+            <i class="fas fa-temperature-high"></i>
+            <div>
+              <label>Max Temp</label>
+              <span id="maxTemp">--°C</span>
+            </div>
+          </div>
+          <div class="sun-card">
+            <i class="fas fa-temperature-low"></i>
+            <div>
+              <label>Min Temp</label>
+              <span id="minTemp">--°C</span>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+      <div class="loading-spinner">
+        <div class="spinner-ring"></div>
+        <p>Fetching weather data...</p>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast-notification" id="toast">
+      <i class="fas fa-exclamation-circle"></i>
+      <span id="toastMessage"></span>
+    </div>
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
